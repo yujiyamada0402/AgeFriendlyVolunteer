@@ -7,6 +7,18 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  document.querySelectorAll("[data-copy-target]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const src = document.getElementById(btn.dataset.copyTarget);
+      if (!src) return;
+      navigator.clipboard.writeText(src.innerText).then(() => {
+        const label = btn.textContent;
+        btn.textContent = "Copied!";
+        setTimeout(() => { btn.textContent = label; }, 1600);
+      });
+    });
+  });
+
   const targets = document.querySelectorAll(
     ".steps li, .module-card, .checklist li, .callout, table.plain, .hero-stats span"
   );

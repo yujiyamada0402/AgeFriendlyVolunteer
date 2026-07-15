@@ -422,6 +422,34 @@ table.plain th {
 table.plain tr:last-child td { border-bottom: none; }
 table.plain tbody tr:nth-child(even) { background: #f7f8fc; }
 
+/* ===== Email template block ===== */
+.email-template {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 1.2rem 1.4rem;
+  margin: 1.2rem 0;
+}
+.email-template pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: var(--font-text);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg-soft);
+  border-radius: 12px;
+  padding: 1.1rem 1.3rem;
+  margin: 0 0 1rem;
+}
+.email-template .copy-btn { cursor: pointer; border: none; font-family: var(--font-text); }
+.email-template mark {
+  background: #fdf0c2;
+  border-radius: 4px;
+  padding: 0 0.25em;
+}
+
 /* ===== Callouts ===== */
 .callout {
   border: 1px solid #f2c4dd;
