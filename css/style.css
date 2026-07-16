@@ -285,6 +285,83 @@ a:hover { color: var(--indigo); }
   border: 1px solid #f6c2de;
 }
 
+/* ===== Accordion (details/summary) ===== */
+.accordion { margin: 1.4rem 0; }
+.accordion details {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 0.7rem;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+.accordion details[open] { box-shadow: var(--shadow-lg); }
+.accordion summary {
+  cursor: pointer;
+  padding: 1rem 1.3rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.08rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.accordion summary::-webkit-details-marker { display: none; }
+.accordion summary::before {
+  content: "+";
+  flex-shrink: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand), #b0189c);
+  color: #fff;
+  font-size: 1.15rem;
+  line-height: 1;
+  font-family: var(--font-text);
+}
+.accordion details[open] summary::before { content: "\2013"; }
+.accordion summary .tag { margin: 0 0 0 auto; }
+.accordion summary:hover { color: var(--brand); }
+.acc-body {
+  padding: 0.3rem 1.4rem 1.3rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+.role-block {
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+}
+.role-block.vol { background: var(--brand-soft); }
+.role-block.phys { background: #eef1fb; }
+.role-label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+.role-block.vol .role-label { color: var(--brand); }
+.role-block.phys .role-label { color: var(--indigo); }
+.acc-body ul { margin: 0; padding-left: 1.1rem; font-size: 0.93rem; }
+.acc-body li { margin-bottom: 0.3rem; }
+.acc-note {
+  grid-column: 1 / -1;
+  font-size: 0.87rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+@media (max-width: 640px) {
+  .acc-body { grid-template-columns: 1fr; }
+  .accordion summary .tag { display: none; }
+}
+
 /* ===== Checklist ===== */
 .checklist {
   list-style: none;
