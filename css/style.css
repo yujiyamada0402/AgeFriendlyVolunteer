@@ -24,7 +24,8 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+/* No scroll-behavior:smooth — Chrome suspends smooth scrolls in background
+   tabs, which silently breaks anchor jumps like volunteering.html#day. */
 
 body {
   margin: 0;
@@ -123,6 +124,7 @@ h2 {
   font-size: clamp(1.35rem, 2.6vw, 1.7rem);
   margin: 3rem 0 1rem;
   letter-spacing: -0.01em;
+  scroll-margin-top: 96px; /* keep anchored headings clear of the sticky header */
 }
 p  { margin: 0.5rem 0 1rem; }
 a  { color: var(--brand); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
@@ -571,7 +573,6 @@ table.plain tbody tr:nth-child(even) { background: #f7f8fc; }
 .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
-  html { scroll-behavior: auto; }
 }
 
 @media (max-width: 640px) {
